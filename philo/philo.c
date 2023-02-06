@@ -3,10 +3,10 @@
 /*                                                        :::      ::::::::   */
 /*   philo.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yrhiba <yrhiba@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 03:47:44 by yrhiba            #+#    #+#             */
-/*   Updated: 2023/02/06 05:25:26 by yrhiba           ###   ########.fr       */
+/*   Updated: 2023/02/06 12:00:40 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,9 @@
 
 int main(int ac, char **av)
 {
-	// t_philo	*philo;
-	// philo = (t_philo *)malloc(sizeof(t_philo));
-	// if (!philo)
-	// 	return (perror("error"), 1);
-	return (0);
+	t_data	*data;
+
+	data_init(&data);
+	free(data);
+	return (EXIT_SUCCES);
 }

@@ -3,17 +3,16 @@
 /*                                                        :::      ::::::::   */
 /*   philo.h                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
-/*   By: yrhiba <yrhiba@student.42.fr>              +#+  +:+       +#+        */
+/*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 11:12:27 by yrhiba            #+#    #+#             */
-/*   Updated: 2023/02/06 05:10:13 by yrhiba           ###   ########.fr       */
+/*   Updated: 2023/02/06 12:00:40 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHILO_H
 # define PHILO_H
 
-# include <error.h>
 # include <limits.h>
 # include <pthread.h>
 # include <stdio.h>
@@ -22,39 +21,56 @@
 # include <sys/time.h>
 # include <unistd.h>
 
-# define SEC_US 1000000
-# define SEC_MS 1000
+# define EXIT_ERR 1
+# define EXIT_SUCCES 1
+
 # define ll long long
 
-// struct timeval {
-// 			time_t      tv_sec;     /* seconds */
-// 			suseconds_t tv_usec;    /* microseconds */
-// };
-
-// typedef struct s_philo
+# define SEC_US ((ll)1e6)
+# define SEC_MS ((ll)1e3)
 
 typedef struct s_time
 {
-	long long		start;
-	long long		curr;
+	long long	start;
 
-}					t_time;
+}				t_time;
 
 typedef struct s_philo
 {
-	pthread_t		*threads;
-	pthread_mutex_t	*mutexs;
-	ll				number_of_philos;
-	ll				time_to_die;
-	ll				time_to_eat;
-	ll				time_to_sleep;
-	ll				time_must_eat;
-	ll				start_time_ms;
+	t_time		*time;
+	ll			id;
+	ll			*time_to_die;
+	ll			*time_to_eat;
+	ll			*time_to_sleep;
+	ll			nums_to_eat;
 
-}					t_philo;
+}				t_philo;
+
+typedef struct s_data
+{
+	t_time		time;
+	ll			number_of_philos;
+	ll			time_to_die;
+	ll			time_to_eat;
+	ll			time_to_sleep;
+	ll			nums_to_eat;
+
+}				t_data;
+
+// floors
+
+// floor_init
+int				data_init(t_data **data);
 
 // time
-int					set_curr_time(t_time *time);
-int					set_start_time(t_time *time);
+ll				get_curr_time(t_time *time);
+int				set_start_time(t_time *time);
+
+// logs
+void			philo_eat(t_philo *philo);
+void			philo_died(t_philo *philo);
+void			philo_sleep(t_philo *philo);
+void			philo_think(t_philo *philo);
+void			philo_take_fork(t_philo *philo);
 
 #endif
