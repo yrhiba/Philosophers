@@ -6,16 +6,16 @@
 #    By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/06 10:35:12 by yrhiba            #+#    #+#              #
-#    Updated: 2023/02/06 11:58:36 by yrhiba           ###   ########.fr        #
+#    Updated: 2023/03/09 15:39:00 by yrhiba           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
 NAME = philo
 
-OBJFLAGS = -Wall -Wextra #-Werror
+OBJFLAGS = -Wall -Wextra -Werror
 INCSPATH = -I incs
 
-SRCS =	$(SRCS_MYLIST) $(SRCS_UTILS) \
+SRCS =	$(SRCS_MYLIST) \
 		philo.c \
 		floors/floor_init/data_init.c \
 		logs/logs.c \
@@ -35,8 +35,6 @@ SRCS_MYLIST =	mylist/my_list_init.c \
 				mylist/my_list_get.c \
 				mylist/my_list_erase.c \
 				mylist/my_list_insert.c
-
-SRCS_UTILS = 
 
 INCS = incs/my_list.h incs/philo.h
 

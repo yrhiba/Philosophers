@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 11:12:27 by yrhiba            #+#    #+#             */
-/*   Updated: 2023/02/06 12:00:40 by yrhiba           ###   ########.fr       */
+/*   Updated: 2023/03/09 16:24:09 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@
 
 typedef struct s_time
 {
-	long long	start;
+	long long	time;
 
 }				t_time;
 
@@ -48,7 +48,7 @@ typedef struct s_philo
 
 typedef struct s_data
 {
-	t_time		time;
+	t_time		start;
 	ll			number_of_philos;
 	ll			time_to_die;
 	ll			time_to_eat;
