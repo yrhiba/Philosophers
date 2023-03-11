@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 11:12:27 by yrhiba            #+#    #+#             */
-/*   Updated: 2023/03/11 23:11:41 by yrhiba           ###   ########.fr       */
+/*   Updated: 2023/03/11 23:14:28 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,7 @@ LL					get_num(char *av);
 LL					get_curr_time(void);
 int					set_start_time(t_data *data);
 int					creat_forks_mutex(t_data *data);
+int					alloc_needs(t_data *data);
 
 // philo thread
 void				*philo_thread(void *arg);
