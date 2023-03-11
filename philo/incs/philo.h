@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 11:12:27 by yrhiba            #+#    #+#             */
-/*   Updated: 2023/03/10 22:10:33 by yrhiba           ###   ########.fr       */
+/*   Updated: 2023/03/11 17:06:43 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -77,5 +77,6 @@ int				my_data_init(t_data **data, int ac, char **av);
 
 // utils
 ll				get_num(char *av);
+int				set_start_time(t_data *data);
 
 #endif
