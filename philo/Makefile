@@ -6,7 +6,7 @@
 #    By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/06 10:35:12 by yrhiba            #+#    #+#              #
-#    Updated: 2023/03/11 20:59:51 by yrhiba           ###   ########.fr        #
+#    Updated: 2023/03/11 23:10:21 by yrhiba           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,7 +21,9 @@ SRCS =	philo.c \
 		utils/get_num.c \
 		utils/set_start_time.c \
 		utils/get_curr_time.c \
-		utils/calc_curr_time.c
+		utils/calc_curr_time.c \
+		utils/creat_forks_mutex.c \
+		thread/philo_thread.c
 
 
 INCS = incs/philo.h
