@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/09 17:26:35 by yrhiba            #+#    #+#             */
-/*   Updated: 2023/03/11 17:28:02 by yrhiba           ###   ########.fr       */
+/*   Updated: 2023/03/11 21:02:39 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static int	check_data(t_data *data)
 {
 	if (data->number_of_philos == -1 || data->nums_to_eat == -1
 		|| data->time_to_die == -1 || data->start_time.time == -1
-		|| data->time_to_sleep == -1)
+		|| data->time_to_sleep == -1 || data->time_to_eat == -1)
 		return (-1);
 	return (0);
 }
@@ -33,6 +33,7 @@ static int	parse_data(t_data *data, int ac, char **av)
 	if (ac == 6)
 		data->nums_to_eat = get_num(av[5]);
 	set_start_time(data);
+	data->error = 0;
 	return (check_data(data));
 }
 

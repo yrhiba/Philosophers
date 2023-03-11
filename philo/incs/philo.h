@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 11:12:27 by yrhiba            #+#    #+#             */
-/*   Updated: 2023/03/11 17:06:43 by yrhiba           ###   ########.fr       */
+/*   Updated: 2023/03/11 21:04:56 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,12 +22,12 @@
 # include <unistd.h>
 
 # define EXIT_ERR 1
-# define EXIT_SUCCES 1
+# define EXIT_SUCCES 0
 
-# define ll long long
+# define LL long long
 
-# define SEC_US ((ll)1e6)
-# define SEC_MS ((ll)1e3)
+# define SEC_US 1e6
+# define SEC_MS 1e3
 
 # define EAT 0
 # define SLEEP 1
@@ -39,44 +39,43 @@ typedef struct s_time
 
 }				t_time;
 
-typedef struct s_philo
-{
-	ll			id;
-	ll			*time_to_die;
-	ll			*time_to_eat;
-	ll			*time_to_sleep;
-	ll			nums_to_eat;
-	ll			he_is;
-	t_time		*start_time;
-	t_time		start_eat;
-	t_time		end_eat;
-
-}				t_philo;
-
 typedef struct s_data
 {
-	ll			number_of_philos;
-	ll			time_to_die;
-	ll			time_to_eat;
-	ll			time_to_sleep;
-	ll			nums_to_eat;
+	LL			number_of_philos;
+	LL			time_to_die;
+	LL			time_to_eat;
+	LL			time_to_sleep;
+	LL			nums_to_eat;
+	LL			error;
 	t_time		start_time;
 
 }				t_data;
 
+typedef struct s_philo
+{
+	LL			id;
+	LL			nums_to_eat;
+	LL			he_is;
+	t_time		start_time;
+	t_time		end_time;
+	t_data		*data;
+
+}				t_philo;
+
 // parsing
 int				my_data_init(t_data **data, int ac, char **av);
 
-
 // logs
-// void			philo_eat(t_philo *philo);
-// void			philo_died(t_philo *philo);
-// void			philo_sleep(t_philo *philo);
-// void			philo_think(t_philo *philo);
-// void			philo_take_fork(t_philo *philo);
+int				philo_eat(t_philo *philo);
+int				philo_died(t_philo *philo);
+int				philo_sleep(t_philo *philo);
+int				philo_think(t_philo *philo);
+int				philo_take_fork(t_philo *philo);
 
 // utils
-ll				get_num(char *av);
+LL				calc_curr_time(t_philo *philo);
+LL				get_num(char *av);
+LL				get_curr_time(void);
 int				set_start_time(t_data *data);
 
 #endif

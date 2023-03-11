@@ -6,7 +6,7 @@
 #    By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/06 10:35:12 by yrhiba            #+#    #+#              #
-#    Updated: 2023/03/11 17:05:42 by yrhiba           ###   ########.fr        #
+#    Updated: 2023/03/11 20:59:51 by yrhiba           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,9 @@ SRCS =	philo.c \
 		parse/my_data_init.c \
 		logs/logs.c \
 		utils/get_num.c \
-		utils/set_start_time.c
+		utils/set_start_time.c \
+		utils/get_curr_time.c \
+		utils/calc_curr_time.c
 
 
 INCS = incs/philo.h
