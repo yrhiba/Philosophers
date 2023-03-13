@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 22:48:40 by yrhiba            #+#    #+#             */
-/*   Updated: 2023/03/11 22:55:23 by yrhiba           ###   ########.fr       */
+/*   Updated: 2023/03/13 03:10:44 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -25,6 +25,8 @@ void *philo_thread(void *arg)
 		usleep(SEC_US);
 		philo_think(philo);
 		usleep(SEC_US);
+		if (*(philo->error))
+			return (-1);
 	}
 	return (free(philo), NULL);
 }
