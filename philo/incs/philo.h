@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 11:12:27 by yrhiba            #+#    #+#             */
-/*   Updated: 2023/03/13 19:03:11 by yrhiba           ###   ########.fr       */
+/*   Updated: 2023/03/13 20:38:32 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,7 +80,7 @@ int					philo_sleep(t_philo *philo);
 int					philo_think(t_philo *philo);
 int					philo_take_fork(t_philo *philo);
 
-// utils
+// utils one
 LL					calc_curr_time(t_philo *philo);
 LL					get_num(char *av);
 LL					get_curr_time(void);
@@ -90,7 +90,14 @@ int					alloc_needs(t_data *data);
 void				destroy_mutexs(t_data *data, int size);
 int					allocat_philos_data(t_data *data);
 
+// utils two
+int					start_philos_cycle(t_data *data);
+int					join_all_the_threads(t_data *data);
+
 // philo thread
 void				*philo_thread(void *arg);
+
+// main thread
+int					main_thread(t_data *data);
 
 #endif

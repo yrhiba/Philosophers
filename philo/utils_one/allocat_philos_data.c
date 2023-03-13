@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 18:31:39 by yrhiba            #+#    #+#             */
-/*   Updated: 2023/03/13 19:02:38 by yrhiba           ###   ########.fr       */
+/*   Updated: 2023/03/13 20:45:45 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,14 +32,14 @@ static void	set_philo_data(t_data *data, t_philo *philo, int id)
 
 int	allocat_philos_data(t_data *data)
 {
-	int	i;
+	LL	i;
 
 	data->philos_data = (t_philo *)malloc(sizeof(t_philo)
 			* data->number_of_philos);
 	if (!(data->philos_data))
-		retunr(-1);
+		return (-1);
 	i = -1;
-	while (++i < data->philos_data)
+	while (++i < data->number_of_philos)
 		set_philo_data(data, data->philos_data + i, i);
 	return (0);
 }

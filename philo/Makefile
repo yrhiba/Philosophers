@@ -6,7 +6,7 @@
 #    By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/02/06 10:35:12 by yrhiba            #+#    #+#              #
-#    Updated: 2023/03/13 18:33:01 by yrhiba           ###   ########.fr        #
+#    Updated: 2023/03/13 20:37:36 by yrhiba           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,15 +18,17 @@ INCSPATH = -I incs
 SRCS =	philo.c \
 		parse/my_data_init.c \
 		logs/logs.c \
-		utils/get_num.c \
-		utils/set_start_time.c \
-		utils/get_curr_time.c \
-		utils/calc_curr_time.c \
-		utils/creat_forks_mutex.c \
-		utils/alloc_needs.c \
-		utils/allocat_philos_data.c \
-		thread/philo_thread.c
-
+		utils_one/get_num.c \
+		utils_one/set_start_time.c \
+		utils_one/get_curr_time.c \
+		utils_one/calc_curr_time.c \
+		utils_one/creat_forks_mutex.c \
+		utils_one/alloc_needs.c \
+		utils_one/allocat_philos_data.c \
+		utils_two/start_philos_cycle.c \
+		utils_two/join_all_the_threads.c \
+		thread/philo_thread.c \
+		thread/main_thread.c
 
 INCS = incs/philo.h
 

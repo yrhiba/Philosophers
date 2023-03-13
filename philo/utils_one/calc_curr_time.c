@@ -1,32 +1,23 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo_thread.c                                     :+:      :+:    :+:   */
+/*   calc_curr_time.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/11 22:48:40 by yrhiba            #+#    #+#             */
-/*   Updated: 2023/03/13 20:47:54 by yrhiba           ###   ########.fr       */
+/*   Created: 2023/03/11 20:59:00 by yrhiba            #+#    #+#             */
+/*   Updated: 2023/03/13 20:42:14 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-void	*philo_thread(void *arg)
+LL	calc_curr_time(t_philo *philo)
 {
-	t_philo	*philo;
+	LL	curr_time;
 
-	philo = (t_philo *)arg;
-	while (1)
-	{
-		philo_eat(philo);
-		usleep(SEC_US);
-		philo_sleep(philo);
-		usleep(SEC_US);
-		philo_think(philo);
-		usleep(SEC_US);
-		if (*(philo->error))
-			return (NULL);
-	}
-	return (NULL);
+	curr_time = get_curr_time();
+	if (curr_time == -1)
+		return (-1);
+	return (curr_time - (*(philo->start_time)).time);
 }
