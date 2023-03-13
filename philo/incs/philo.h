@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 11:12:27 by yrhiba            #+#    #+#             */
-/*   Updated: 2023/03/13 03:05:23 by yrhiba           ###   ########.fr       */
+/*   Updated: 2023/03/13 19:03:11 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,6 +88,7 @@ int					set_start_time(t_data *data);
 int					creat_forks_mutex(t_data *data);
 int					alloc_needs(t_data *data);
 void				destroy_mutexs(t_data *data, int size);
+int					allocat_philos_data(t_data *data);
 
 // philo thread
 void				*philo_thread(void *arg);

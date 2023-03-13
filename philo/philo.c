@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 03:47:44 by yrhiba            #+#    #+#             */
-/*   Updated: 2023/03/13 03:07:57 by yrhiba           ###   ########.fr       */
+/*   Updated: 2023/03/13 19:04:28 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,9 @@ int	main(int ac, char **av)
 		return (free(data->forks_mutex), free(data->philos_threads), free(data),
 			printf("Erorr!\n"), EXIT_FAILURE);
 	// allocat and set philos threads arg
-	// ....
+	if (allocat_philos_data(data) == -1)
+		return (free(data->forks_mutex), free(data->philos_threads), free(data),
+			printf("Erorr!\n"), EXIT_FAILURE);
 	// start threads/philos cycle eat->sleep->think..
 	if (start_philos_cycle(data) == -1)
 		return (free(data->forks_mutex), free(data->philos_threads), free(data),
@@ -54,7 +56,7 @@ int	main(int ac, char **av)
 		usleep(500);
 	}
 	// join the threads
-	// ....
+	
 	// free all the data
 	// ....
 	return (EXIT_SUCCES);
