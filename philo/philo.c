@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 03:47:44 by yrhiba            #+#    #+#             */
-/*   Updated: 2023/03/14 21:41:49 by yrhiba           ###   ########.fr       */
+/*   Updated: 2023/03/14 22:09:36 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,11 +18,6 @@ static void	free_data(t_data *data)
 	free(data->philos_threads);
 	free(data->forks_mutex);
 	free(data->philos_data);
-}
-
-void	leaks(void)
-{
-	system("leaks philo");
 }
 
 int	main(int ac, char **av)

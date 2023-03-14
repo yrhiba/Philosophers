@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 22:48:40 by yrhiba            #+#    #+#             */
-/*   Updated: 2023/03/14 21:43:17 by yrhiba           ###   ########.fr       */
+/*   Updated: 2023/03/14 23:05:37 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ void	*philo_thread(void *philo)
 			return (NULL);
 		if (philo_sleep(((t_philo *)philo)) == -1)
 			return (*(((t_philo *)philo)->error) = 1, NULL);
-		usleep((*(((t_philo *)philo)->time_to_eat))*1e3);
+		usleep((*(((t_philo *)philo)->time_to_sleep))*1e3);
 		if (philo_think(((t_philo *)philo)) == -1)
 			return (*(((t_philo *)philo)->error) = 1, NULL);
 		if (*(((t_philo *)philo)->error))
