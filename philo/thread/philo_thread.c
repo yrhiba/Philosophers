@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/11 22:48:40 by yrhiba            #+#    #+#             */
-/*   Updated: 2023/03/14 05:11:44 by yrhiba           ###   ########.fr       */
+/*   Updated: 2023/03/14 21:43:17 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,18 +36,21 @@ static int	putback_forks(t_philo *philo)
 
 void	*philo_thread(void *philo)
 {
-	while (!(*(((t_philo *)(philo))->finish)))
+	while (((t_philo *)philo)->nums_to_eat > 0)
 	{
 		if (take_forks(((t_philo *)philo)) != 0)
 			return (*(((t_philo *)philo)->error) = 1, NULL);
 		if (philo_eat(((t_philo *)philo)) == -1)
 			return (*(((t_philo *)philo)->error) = 1, NULL);
-		usleep((*(((t_philo *)philo)->time_to_eat)) * 1e3);
+		usleep((*(((t_philo *)philo)->time_to_eat))*1e3);
+		((t_philo *)philo)->nums_to_eat -= 1;
 		if (putback_forks(((t_philo *)philo)) != 0)
 			return (*(((t_philo *)philo)->error) = 1, NULL);
+		if (((t_philo *)philo)->nums_to_eat == 0)
+			return (NULL);
 		if (philo_sleep(((t_philo *)philo)) == -1)
 			return (*(((t_philo *)philo)->error) = 1, NULL);
-		usleep((*(((t_philo *)philo)->time_to_eat)) * 1e3);
+		usleep((*(((t_philo *)philo)->time_to_eat))*1e3);
 		if (philo_think(((t_philo *)philo)) == -1)
 			return (*(((t_philo *)philo)->error) = 1, NULL);
 		if (*(((t_philo *)philo)->error))

@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 19:28:08 by yrhiba            #+#    #+#             */
-/*   Updated: 2023/03/14 05:10:27 by yrhiba           ###   ########.fr       */
+/*   Updated: 2023/03/14 21:44:43 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,22 +30,27 @@ int	main_thread(t_data *data)
 {
 	int	i;
 	int	r;
+	int	a;
 
 	while (!(data->finish))
 	{
-		i = 0;
-		while (i < data->number_of_philos)
+		i = -1;
+		a = 0;
+		while (++i < data->number_of_philos)
 		{
 			r = check_die_of_philo(data->philos_data + i, data);
 			if (r == -1)
 				return (data->error = 1, -1);
 			else if (r == 1)
 				return (philo_died(data->philos_data + i), data->finish = 1, 0);
-			i++;
+			if (((t_philo *)(data->philos_data + i))->nums_to_eat == 0)
+				a++;
 		}
 		if (data->error)
 			return (-1);
-		usleep(100);
+		if (a == data->number_of_philos)
+			return (0);
+		usleep(20);
 	}
 	return (0);
 }
