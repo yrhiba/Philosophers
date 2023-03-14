@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 18:31:39 by yrhiba            #+#    #+#             */
-/*   Updated: 2023/03/13 20:45:45 by yrhiba           ###   ########.fr       */
+/*   Updated: 2023/03/14 05:06:29 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,9 +20,9 @@ static void	set_philo_data(t_data *data, t_philo *philo, int id)
 	philo->time_to_eat = &(data->time_to_eat);
 	philo->nums_to_eat = data->nums_to_eat;
 	philo->start_time = &(data->start_time);
-	philo->start_acttime.time = 0;
-	philo->end_acttime.time = -1;
+	philo->end_eattime.time = 0;
 	philo->error = &(data->error);
+	philo->finish = &(data->finish);
 	philo->right_fork = data->forks_mutex + id;
 	if (id == data->number_of_philos - 1)
 		philo->left_fork = data->forks_mutex;

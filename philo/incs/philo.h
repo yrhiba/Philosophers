@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/02 11:12:27 by yrhiba            #+#    #+#             */
-/*   Updated: 2023/03/13 20:38:32 by yrhiba           ###   ########.fr       */
+/*   Updated: 2023/03/14 04:18:16 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,6 +32,7 @@
 # define EAT 0
 # define SLEEP 1
 # define THINK 2
+# define DIE 3
 
 typedef struct s_time
 {
@@ -47,11 +48,11 @@ typedef struct s_philo
 	LL				*time_to_eat;
 	LL				nums_to_eat;
 	t_time			*start_time;
-	t_time			start_acttime;
-	t_time			end_acttime;
+	t_time			end_eattime;
 	pthread_mutex_t	*right_fork;
 	pthread_mutex_t	*left_fork;
 	LL				*error;
+	LL				*finish;
 
 }					t_philo;
 
@@ -66,6 +67,7 @@ typedef struct s_data
 	LL				time_to_sleep;
 	LL				nums_to_eat;
 	LL				error;
+	LL				finish;
 	t_time			start_time;
 
 }					t_data;
@@ -95,7 +97,7 @@ int					start_philos_cycle(t_data *data);
 int					join_all_the_threads(t_data *data);
 
 // philo thread
-void				*philo_thread(void *arg);
+void				*philo_thread(void *philo);
 
 // main thread
 int					main_thread(t_data *data);
