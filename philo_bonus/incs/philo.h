@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 22:06:51 by yrhiba            #+#    #+#             */
-/*   Updated: 2023/03/18 00:45:44 by yrhiba           ###   ########.fr       */
+/*   Updated: 2023/03/18 00:51:22 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@
 # include <string.h>
 # include <sys/time.h>
 # include <unistd.h>
+# include <fcntl.h>
 
 # define EXIT_SUCCES 0
 # define EXIT_ERR 1
@@ -36,6 +37,8 @@
 # define SLEEP 1
 # define THINK 2
 # define DIE 3
+
+# define SEMFORKS "/sem_forks"
 
 typedef struct s_time
 {

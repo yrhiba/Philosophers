@@ -1,32 +1,21 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo.c                                            :+:      :+:    :+:   */
+/*   open_semaphore.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/17 22:12:57 by yrhiba            #+#    #+#             */
-/*   Updated: 2023/03/18 00:53:10 by yrhiba           ###   ########.fr       */
+/*   Created: 2023/03/18 00:48:49 by yrhiba            #+#    #+#             */
+/*   Updated: 2023/03/18 00:53:55 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-static	void	clean_one(t_data *data)
+int	open_semaphore(t_data *data)
 {
-	sem_close(data->sem_forks);
-	sem_unlink(SEMFORKS);
-	free(data->philos_ids);
-	free(data);
-}
-
-int main(int ac, char **av)
-{
-	t_data	*data;
-
-	if (my_data_init(&data, ac, av) == -1)
-		return (printf("Erorr!\n"), EXIT_FAILURE);
-	if (alloc_needs(data) == -1)
-		return (free(data), printf("Erorr!\n"), EXIT_FAILURE);
-	return (clean_one(data), 0);
+	data->sem_forks = sem_open(SEMFORKS, O_CREAT, 0644, data->number_of_philos);
+	if (data->sem_forks == SEM_FAILED)
+		return (-1);
+	return (0);
 }
