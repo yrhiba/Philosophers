@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 22:06:51 by yrhiba            #+#    #+#             */
-/*   Updated: 2023/03/17 22:22:12 by yrhiba           ###   ########.fr       */
+/*   Updated: 2023/03/18 00:45:44 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -76,6 +76,19 @@ typedef struct s_data
 
 // utils
 int				my_data_init(t_data **data, int ac, char **av);
+int				alloc_needs(t_data *data);
 LL				get_num(char *av);
+LL				calc_curr_time(t_philo *philo);
+LL				get_curr_time(void);
+LL				get_num(char *av);
+int				my_data_init(t_data **data, int ac, char **av);
+int				set_start_time(t_data *data);
+
+// logs
+int				philo_eat(t_philo *philo);
+int				philo_died(t_philo *philo);
+int				philo_sleep(t_philo *philo);
+int				philo_think(t_philo *philo);
+int				philo_take_fork(t_philo *philo);
 
 #endif

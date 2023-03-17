@@ -6,7 +6,7 @@
 #    By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/17 22:06:55 by yrhiba            #+#    #+#              #
-#    Updated: 2023/03/17 22:23:25 by yrhiba           ###   ########.fr        #
+#    Updated: 2023/03/18 00:45:19 by yrhiba           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -16,8 +16,13 @@ OBJFLAGS = -Wall -Wextra -Werror
 INCSPATH = -I incs
 
 SRCS =	philo.c \
+		utils/alloc_needs.c \
+		utils/calc_curr_time.c \
+		utils/get_curr_time.c \
+		utils/get_num.c \
 		utils/my_data_init.c \
-		utils/get_num.c
+		utils/set_start_time.c \
+		logs/logs.c
 
 
 INCS = incs/philo.h

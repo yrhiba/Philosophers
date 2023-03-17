@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 22:15:30 by yrhiba            #+#    #+#             */
-/*   Updated: 2023/03/17 22:20:05 by yrhiba           ###   ########.fr       */
+/*   Updated: 2023/03/18 00:47:13 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,7 +32,20 @@ static int	parse_data(t_data *data, int ac, char **av)
 	data->nums_to_eat = INT_MAX;
 	if (ac == 6)
 		data->nums_to_eat = get_num(av[5]);
+	if (set_start_time(data) == -1)
+		return (-1);
 	return (check_data(data));
+}
+
+static void	set_philo_data(t_data *data)
+{
+	(data->philo_data).id = 0;
+	(data->philo_data).he_is = THINK;
+	(data->philo_data).time_to_sleep = &(data->time_to_sleep);
+	(data->philo_data).time_to_eat = &(data->time_to_eat);
+	(data->philo_data).nums_to_eat = data->nums_to_eat;
+	(data->philo_data).start_time = &(data->start_time);
+	(data->philo_data).end_eattime.time = 0;
 }
 
 int	my_data_init(t_data **data, int ac, char **av)
@@ -42,5 +55,6 @@ int	my_data_init(t_data **data, int ac, char **av)
 		return (-1);
 	if (parse_data(*data, ac, av) == -1)
 		return (free(*data), -1);
+	set_philo_data(*data);
 	return (0);
 }
