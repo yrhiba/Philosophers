@@ -6,7 +6,7 @@
 #    By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/03/17 22:06:55 by yrhiba            #+#    #+#              #
-#    Updated: 2023/03/18 01:01:09 by yrhiba           ###   ########.fr        #
+#    Updated: 2023/03/18 05:40:28 by yrhiba           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -18,14 +18,15 @@ INCSPATH = -I incs
 SRCS =	philo.c \
 		logs/logs.c \
 		process/main_pros.c \
-		process/philo_pros.c
+		process/philo_pros.c \
 		utils_one/alloc_needs.c \
 		utils_one/calc_curr_time.c \
 		utils_one/get_curr_time.c \
 		utils_one/get_num.c \
 		utils_one/my_data_init.c \
 		utils_one/open_semaphore.c \
-		utils_one/set_start_time.c
+		utils_one/set_start_time.c \
+		utils_two/start_philos_cycle.c
 
 
 INCS = incs/philo.h

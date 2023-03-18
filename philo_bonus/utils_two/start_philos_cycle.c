@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 01:01:25 by yrhiba            #+#    #+#             */
-/*   Updated: 2023/03/18 04:31:21 by yrhiba           ###   ########.fr       */
+/*   Updated: 2023/03/18 05:41:11 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,7 +31,7 @@ int	start_philos_cycle(t_data *data)
 		(data->philos_ids)[i] = fork();
 		if ((data->philos_ids)[i] == -1)
 			return (kill_created_pros(data, i), -1);
-		else if ((data->philos_ids[i] == 0))
+		else if (data->philos_ids[i] == 0)
 		{
 			data->philo_data.id = i;
 			philo_proces(data);

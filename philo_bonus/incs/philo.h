@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 22:06:51 by yrhiba            #+#    #+#             */
-/*   Updated: 2023/03/18 04:28:50 by yrhiba           ###   ########.fr       */
+/*   Updated: 2023/03/18 05:07:31 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,6 +23,7 @@
 # include <string.h>
 # include <sys/time.h>
 # include <unistd.h>
+# include <sys/wait.h>
 
 # define EXIT_SUCCES 0
 # define EXIT_ERR 1
