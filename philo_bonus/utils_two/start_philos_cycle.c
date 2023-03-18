@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 01:01:25 by yrhiba            #+#    #+#             */
-/*   Updated: 2023/03/18 01:11:57 by yrhiba           ###   ########.fr       */
+/*   Updated: 2023/03/18 02:19:35 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,7 +34,7 @@ int	start_philos_cycle(t_data *data)
 		else if ((data->philos_ids[i] == 0))
 		{
 			data->philo_data.id = i;
-			// call the philo function proces
+			philo_proces(data);
 			break;
 		}
 	}

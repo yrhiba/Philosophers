@@ -6,16 +6,23 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 22:12:57 by yrhiba            #+#    #+#             */
-/*   Updated: 2023/03/18 01:11:54 by yrhiba           ###   ########.fr       */
+/*   Updated: 2023/03/18 03:28:40 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo.h"
 
-static	void	clean_one(t_data *data)
+void	clean_one(t_data *data)
 {
 	sem_close(data->sem_forks);
 	sem_unlink(SEMFORKS);
+	free(data->philos_ids);
+	free(data);
+}
+
+void	clean_two(t_data *data)
+{
+	sem_close(data->sem_forks);
 	free(data->philos_ids);
 	free(data);
 }

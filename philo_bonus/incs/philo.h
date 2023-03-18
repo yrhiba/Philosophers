@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 22:06:51 by yrhiba            #+#    #+#             */
-/*   Updated: 2023/03/18 01:02:16 by yrhiba           ###   ########.fr       */
+/*   Updated: 2023/03/18 03:33:27 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -58,6 +58,10 @@ typedef struct s_philo
 	t_time		*start_time;
 	t_time		end_eattime;
 
+	sem_t		*sem_forks;
+
+	LL			*error;
+
 }				t_philo;
 
 typedef struct s_data
@@ -74,6 +78,10 @@ typedef struct s_data
 
 	sem_t		*sem_forks;
 	pid_t		*philos_ids;
+
+	pthread_t	philo_thread;
+
+	LL			error;
 
 }				t_data;
 
@@ -95,5 +103,12 @@ int				philo_died(t_philo *philo);
 int				philo_sleep(t_philo *philo);
 int				philo_think(t_philo *philo);
 int				philo_take_fork(t_philo *philo);
+
+// process
+void			philo_proces(t_data *data);
+
+// clean
+void			clean_one(t_data *data);
+void			clean_two(t_data *data);
 
 #endif
