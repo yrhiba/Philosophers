@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 22:06:51 by yrhiba            #+#    #+#             */
-/*   Updated: 2023/03/18 03:33:27 by yrhiba           ###   ########.fr       */
+/*   Updated: 2023/03/18 04:28:50 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -105,6 +105,7 @@ int				philo_think(t_philo *philo);
 int				philo_take_fork(t_philo *philo);
 
 // process
+int				main_proces(t_data *data);
 void			philo_proces(t_data *data);
 
 // clean

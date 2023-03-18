@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 22:12:57 by yrhiba            #+#    #+#             */
-/*   Updated: 2023/03/18 03:28:40 by yrhiba           ###   ########.fr       */
+/*   Updated: 2023/03/18 04:30:36 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	clean_two(t_data *data)
 	free(data);
 }
 
-int main(int ac, char **av)
+int	main(int ac, char **av)
 {
 	t_data	*data;
 
@@ -37,7 +37,7 @@ int main(int ac, char **av)
 		return (free(data), printf("Erorr!\n"), EXIT_FAILURE);
 	if (start_philos_cycle(data) == -1)
 		return (clean_one(data), printf("Erorr!\n"), EXIT_FAILURE);
-	// call the main proces here !
-	// wait for the child proces...
+	if (main_proces(data) == -1)
+		return (clean_two(data), printf("Erorr!\n"), EXIT_FAILURE);
 	return (clean_one(data), 0);
 }
