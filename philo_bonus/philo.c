@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 22:12:57 by yrhiba            #+#    #+#             */
-/*   Updated: 2023/03/18 00:53:10 by yrhiba           ###   ########.fr       */
+/*   Updated: 2023/03/18 01:11:54 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,5 +28,9 @@ int main(int ac, char **av)
 		return (printf("Erorr!\n"), EXIT_FAILURE);
 	if (alloc_needs(data) == -1)
 		return (free(data), printf("Erorr!\n"), EXIT_FAILURE);
+	if (start_philos_cycle(data) == -1)
+		return (clean_one(data), printf("Erorr!\n"), EXIT_FAILURE);
+	// call the main proces here !
+	// wait for the child proces...
 	return (clean_one(data), 0);
 }

@@ -6,13 +6,14 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 22:06:51 by yrhiba            #+#    #+#             */
-/*   Updated: 2023/03/18 00:51:22 by yrhiba           ###   ########.fr       */
+/*   Updated: 2023/03/18 01:02:16 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef PHILO_H
 # define PHILO_H
 
+# include <fcntl.h>
 # include <limits.h>
 # include <pthread.h>
 # include <semaphore.h>
@@ -22,7 +23,6 @@
 # include <string.h>
 # include <sys/time.h>
 # include <unistd.h>
-# include <fcntl.h>
 
 # define EXIT_SUCCES 0
 # define EXIT_ERR 1
@@ -77,15 +77,17 @@ typedef struct s_data
 
 }				t_data;
 
-// utils
-int				my_data_init(t_data **data, int ac, char **av);
+// utils one
 int				alloc_needs(t_data *data);
-LL				get_num(char *av);
 LL				calc_curr_time(t_philo *philo);
 LL				get_curr_time(void);
 LL				get_num(char *av);
 int				my_data_init(t_data **data, int ac, char **av);
+int				open_semaphore(t_data *data);
 int				set_start_time(t_data *data);
+
+// utils one
+int				start_philos_cycle(t_data *data);
 
 // logs
 int				philo_eat(t_philo *philo);
