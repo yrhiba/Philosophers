@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/18 01:01:25 by yrhiba            #+#    #+#             */
-/*   Updated: 2023/03/18 05:41:11 by yrhiba           ###   ########.fr       */
+/*   Updated: 2023/03/18 10:57:33 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,7 @@ static void	kill_created_pros(t_data *data, LL count)
 
 	i = 0;
 	while (i < count)
-		kill(data->philos_ids[i++], SIGTERM);
+		kill(data->philos_ids[i++], SIGINT);
 }
 
 int	start_philos_cycle(t_data *data)

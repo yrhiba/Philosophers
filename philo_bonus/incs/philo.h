@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 22:06:51 by yrhiba            #+#    #+#             */
-/*   Updated: 2023/03/18 05:07:31 by yrhiba           ###   ########.fr       */
+/*   Updated: 2023/03/18 10:56:33 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,8 +22,8 @@
 # include <stdlib.h>
 # include <string.h>
 # include <sys/time.h>
-# include <unistd.h>
 # include <sys/wait.h>
+# include <unistd.h>
 
 # define EXIT_SUCCES 0
 # define EXIT_ERR 1
@@ -59,7 +59,7 @@ typedef struct s_philo
 	t_time		*start_time;
 	t_time		end_eattime;
 
-	sem_t		*sem_forks;
+	sem_t		**sem_forks;
 
 	LL			*error;
 
@@ -81,8 +81,10 @@ typedef struct s_data
 	pid_t		*philos_ids;
 
 	pthread_t	philo_thread;
+	pthread_t	*wait_thread;
 
 	LL			error;
+	LL			philo_die;
 
 }				t_data;
 
