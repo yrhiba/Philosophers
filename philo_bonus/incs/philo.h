@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 22:06:51 by yrhiba            #+#    #+#             */
-/*   Updated: 2023/03/18 10:56:33 by yrhiba           ###   ########.fr       */
+/*   Updated: 2023/03/19 02:24:44 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,8 +80,7 @@ typedef struct s_data
 	sem_t		*sem_forks;
 	pid_t		*philos_ids;
 
-	pthread_t	philo_thread;
-	pthread_t	*wait_thread;
+	pthread_t	check_thread;
 
 	LL			error;
 	LL			philo_die;
@@ -109,7 +108,7 @@ int				philo_take_fork(t_philo *philo);
 
 // process
 int				main_proces(t_data *data);
-void			philo_proces(t_data *data);
+int				philo_proces(t_data *data);
 
 // clean
 void			clean_one(t_data *data);

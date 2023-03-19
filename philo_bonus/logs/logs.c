@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/02/06 04:24:01 by yrhiba            #+#    #+#             */
-/*   Updated: 2023/03/18 00:34:45 by yrhiba           ###   ########.fr       */
+/*   Updated: 2023/03/18 23:55:16 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -44,7 +44,6 @@ int	philo_sleep(t_philo *philo)
 	if (curr_time == -1)
 		return (-1);
 	philo->he_is = SLEEP;
-	philo->end_eattime.time = curr_time;
 	printf("%lld %lld is sleeping\n", curr_time, philo->id + 1);
 	return (0);
 }

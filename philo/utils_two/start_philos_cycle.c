@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 19:09:07 by yrhiba            #+#    #+#             */
-/*   Updated: 2023/03/14 21:34:54 by yrhiba           ###   ########.fr       */
+/*   Updated: 2023/03/19 02:50:53 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,7 @@ int	start_philos_cycle(t_data *data)
 {
 	if (start_half_one(data) == -1)
 		return (-1);
-	usleep(2000);
+	usleep(50);
 	if (start_half_two(data) == -1)
 		return (-1);
 	return (0);

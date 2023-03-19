@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/13 19:28:08 by yrhiba            #+#    #+#             */
-/*   Updated: 2023/03/14 21:44:43 by yrhiba           ###   ########.fr       */
+/*   Updated: 2023/03/19 02:11:45 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,7 +50,7 @@ int	main_thread(t_data *data)
 			return (-1);
 		if (a == data->number_of_philos)
 			return (0);
-		usleep(20);
+		usleep(10);
 	}
 	return (0);
 }

@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/03/17 22:15:30 by yrhiba            #+#    #+#             */
-/*   Updated: 2023/03/18 08:59:03 by yrhiba           ###   ########.fr       */
+/*   Updated: 2023/03/18 23:57:07 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,7 +47,7 @@ static void	set_philo_data(t_data *data)
 	(data->philo_data).nums_to_eat = data->nums_to_eat;
 	(data->philo_data).start_time = &(data->start_time);
 	(data->philo_data).error = &(data->error);
-	(data->philo_data).end_eattime.time = 0;
+	(data->philo_data).end_eattime.time = data->start_time.time;
 	(data->philo_data).sem_forks = &(data->sem_forks);
 }
 
