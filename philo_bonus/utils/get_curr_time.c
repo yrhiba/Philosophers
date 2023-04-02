@@ -1,26 +1,24 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   set_start_time.c                                   :+:      :+:    :+:   */
+/*   get_curr_time.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/18 00:39:57 by yrhiba            #+#    #+#             */
-/*   Updated: 2023/03/18 08:59:11 by yrhiba           ###   ########.fr       */
+/*   Created: 2023/04/01 09:17:42 by yrhiba            #+#    #+#             */
+/*   Updated: 2023/04/01 09:17:59 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "philo.h"
+#include "philo_bonus.h"
 
-int	set_start_time(t_data *data)
+LL	get_curr_time(void)
 {
 	struct timeval	tv;
+	LL				curr_time;
 
 	if (gettimeofday(&tv, NULL) == -1)
-	{
-		data->start_time.time = -1;
 		return (-1);
-	}
-	data->start_time.time = (tv.tv_sec * SEC_MS) + (tv.tv_usec / SEC_MS);
-	return (0);
+	curr_time = (tv.tv_sec * SEC_MS) + (tv.tv_usec / SEC_MS);
+	return (curr_time);
 }

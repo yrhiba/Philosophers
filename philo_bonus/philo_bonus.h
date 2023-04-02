@@ -1,17 +1,17 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   philo.h                                            :+:      :+:    :+:   */
+/*   philo_bonus.h                                      :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/03/17 22:06:51 by yrhiba            #+#    #+#             */
-/*   Updated: 2023/03/19 02:24:44 by yrhiba           ###   ########.fr       */
+/*   Created: 2023/04/01 08:50:22 by yrhiba            #+#    #+#             */
+/*   Updated: 2023/04/02 06:01:41 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#ifndef PHILO_H
-# define PHILO_H
+#ifndef PHILO_BONUS_H
+# define PHILO_BONUS_H
 
 # include <fcntl.h>
 # include <limits.h>
@@ -25,10 +25,6 @@
 # include <sys/wait.h>
 # include <unistd.h>
 
-# define EXIT_SUCCES 0
-# define EXIT_ERR 1
-# define EXIT_DIE 2
-
 # define LL long long
 
 # define SEC_US 1e6
@@ -40,78 +36,69 @@
 # define DIE 3
 
 # define SEMFORKS "/sem_forks"
-
-typedef struct s_time
-{
-	long long	time;
-
-}				t_time;
+# define SEMPRINT "/sem_print"
+# define SEMSYNCR "/sem_sync_"
 
 typedef struct s_philo
 {
 	LL			id;
-	LL			he_is;
 
-	LL			*time_to_sleep;
-	LL			*time_to_eat;
-	LL			nums_to_eat;
+	LL			time_to_sleep;
+	LL			time_to_eat;
+	LL			must_eat;
 
-	t_time		*start_time;
-	t_time		end_eattime;
+	LL			start_time;
+	LL			end_eattime;
 
-	sem_t		**sem_forks;
-
-	LL			*error;
+	sem_t		*sem_forks;
+	sem_t		*sem_print;
+	sem_t		*sem_sync;
 
 }				t_philo;
 
 typedef struct s_data
 {
 	LL			number_of_philos;
+
 	LL			time_to_die;
 	LL			time_to_eat;
 	LL			time_to_sleep;
-	LL			nums_to_eat;
+	LL			must_eat;
 
-	t_time		start_time;
+	LL			start_time;
+
+	sem_t		*sem_forks;
+	sem_t		*sem_print;
+
+	pid_t		*philos_ids;
+
+	pthread_t	thread;
 
 	t_philo		philo_data;
 
-	sem_t		*sem_forks;
-	pid_t		*philos_ids;
+	LL			id;
 
-	pthread_t	check_thread;
-
-	LL			error;
-	LL			philo_die;
+	char		*semsync_name;
+	sem_t		**sem_scyns;
 
 }				t_data;
 
-// utils one
-int				alloc_needs(t_data *data);
-LL				calc_curr_time(t_philo *philo);
-LL				get_curr_time(void);
-LL				get_num(char *av);
+// intro
 int				my_data_init(t_data **data, int ac, char **av);
-int				open_semaphore(t_data *data);
-int				set_start_time(t_data *data);
+int				alloc_needs(t_data *data);
 
-// utils one
-int				start_philos_cycle(t_data *data);
+// simulation
+int				run_childs(t_data *data);
+void			philo_proces(t_data *data);
 
-// logs
-int				philo_eat(t_philo *philo);
-int				philo_died(t_philo *philo);
-int				philo_sleep(t_philo *philo);
-int				philo_think(t_philo *philo);
-int				philo_take_fork(t_philo *philo);
+// utils
+LL				get_num(char *av);
+LL				get_curr_time(void);
+void			set_philo_data(t_data *data);
+char			*lltoch(LL id);
+void			mysleep(LL time_ms);
 
-// process
-int				main_proces(t_data *data);
-int				philo_proces(t_data *data);
-
-// clean
-void			clean_one(t_data *data);
-void			clean_two(t_data *data);
+void			philo_eat(t_philo *philo);
+void			philo_sleep(t_philo *philo);
 
 #endif
