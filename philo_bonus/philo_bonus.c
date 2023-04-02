@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 08:57:36 by yrhiba            #+#    #+#             */
-/*   Updated: 2023/04/02 06:45:57 by yrhiba           ###   ########.fr       */
+/*   Updated: 2023/04/02 08:39:22 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,12 +32,14 @@ static int	start_simulation(t_data *data)
 int	main(int ac, char **av)
 {
 	t_data	*data;
+	LL		i;
 
+	i = -1;
 	if (intro(&data, ac, av) == -1)
 		return (printf("Erorr\n"), 0);
 	if (start_simulation(data) == -1)
 		kill(0, SIGINT);
-	for (LL i = 0; i < data->number_of_philos; i++)
+	while (++i < data->number_of_philos)
 		waitpid(data->philos_ids[i], NULL, 0);
 	return (kill(0, SIGINT), 0);
 }

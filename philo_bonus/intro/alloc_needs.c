@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 09:25:34 by yrhiba            #+#    #+#             */
-/*   Updated: 2023/04/02 06:52:05 by yrhiba           ###   ########.fr       */
+/*   Updated: 2023/04/02 08:29:25 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,6 +22,7 @@ static int	open_sem_syncs(t_data *data)
 		data->semsync_name = lltoch(i);
 		sem_unlink(data->semsync_name);
 		data->sem_scyns[i] = sem_open(data->semsync_name, O_CREAT, 0666, 1);
+		free(data->semsync_name);
 	}
 	return (0);
 }

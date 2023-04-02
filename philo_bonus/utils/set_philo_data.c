@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/01 09:34:04 by yrhiba            #+#    #+#             */
-/*   Updated: 2023/04/02 06:46:05 by yrhiba           ###   ########.fr       */
+/*   Updated: 2023/04/02 08:41:23 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 void	set_philo_data(t_data *data)
 {
-	t_philo *philo;
+	t_philo	*philo;
 
 	philo = &data->philo_data;
 	philo->id = 0;

@@ -6,7 +6,7 @@
 #    By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2023/04/01 08:58:04 by yrhiba            #+#    #+#              #
-#    Updated: 2023/04/02 07:12:39 by yrhiba           ###   ########.fr        #
+#    Updated: 2023/04/02 08:36:03 by yrhiba           ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -29,7 +29,7 @@ INCS = philo_bonus.h
 
 OBJS = $(SRCS:.c=.o)
 
-FLAGS = -Wall -Wextra -Werror #-fsanitize=thread
+FLAGS = -Wall -Wextra -Werror -fsanitize=thread
 
 $(NAME) : $(OBJS)
 	$(CC) $(OBJS) -o $(NAME) $(FLAGS)

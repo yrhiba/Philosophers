@@ -6,7 +6,7 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 04:59:40 by yrhiba            #+#    #+#             */
-/*   Updated: 2023/04/02 05:54:45 by yrhiba           ###   ########.fr       */
+/*   Updated: 2023/04/02 08:41:11 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,20 +15,16 @@
 void	philo_eat(t_philo *philo)
 {
 	sem_wait(philo->sem_forks);
-
 	sem_wait(philo->sem_print);
 	printf("%lld %lld has taken a fork\n", get_curr_time() - philo->start_time,
-			philo->id);
+		philo->id + 1);
 	sem_post(philo->sem_print);
-
 	sem_wait(philo->sem_forks);
-
 	sem_wait(philo->sem_print);
 	printf("%lld %lld has taken a fork\n%lld %lld is eating\n", get_curr_time()
-			- philo->start_time, philo->id, get_curr_time() - philo->start_time,
-			philo->id);
+		- philo->start_time, philo->id + 1, get_curr_time()
+		- philo->start_time, philo->id + 1);
 	sem_post(philo->sem_print);
-
 	mysleep(philo->time_to_eat);
 }
 
@@ -36,8 +32,7 @@ void	philo_sleep(t_philo *philo)
 {
 	sem_wait(philo->sem_print);
 	printf("%lld %lld is sleeping\n", get_curr_time() - philo->start_time,
-			philo->id);
+		philo->id + 1);
 	sem_post(philo->sem_print);
-
 	mysleep(philo->time_to_sleep);
 }

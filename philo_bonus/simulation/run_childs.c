@@ -6,13 +6,13 @@
 /*   By: yrhiba <yrhiba@student.1337.ma>            +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/04/02 02:38:01 by yrhiba            #+#    #+#             */
-/*   Updated: 2023/04/02 02:48:26 by yrhiba           ###   ########.fr       */
+/*   Updated: 2023/04/02 08:40:08 by yrhiba           ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "philo_bonus.h"
 
-static int start_half_one(t_data *data)
+static int	start_half_one(t_data *data)
 {
 	LL	i;
 
@@ -33,7 +33,7 @@ static int start_half_one(t_data *data)
 	return (0);
 }
 
-static int start_half_two(t_data *data)
+static int	start_half_two(t_data *data)
 {
 	LL	i;
 
@@ -54,7 +54,7 @@ static int start_half_two(t_data *data)
 	return (0);
 }
 
-int run_childs(t_data *data)
+int	run_childs(t_data *data)
 {
 	if (start_half_one(data) == -1)
 		kill(0, SIGINT);
